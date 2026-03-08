@@ -22,7 +22,7 @@ class LLMClient:
         if self.mode == "groq":
 
             response = self.client.chat.completions.create(
-                model="llama3-70b-8192",
+                model="llama-3.3-70b-versatile",
                 messages=[{"role": "user", "content": prompt}]
             )
 
@@ -34,5 +34,6 @@ class LLMClient:
                 model="llama3",
                 messages=[{"role": "user", "content": prompt}]
             )
+
 
             return response["message"]["content"]
