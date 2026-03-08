@@ -8,23 +8,25 @@ class QAEngine:
 
     def ask(self, context, question):
 
+        numeric = ", ".join(map(str, context.numeric_features))
+        categorical = ", ".join(map(str, context.categorical_features))
+        columns = ", ".join(map(str, context.column_names))
+
         dataset_summary = (
             f"Dataset Information:\n"
             f"Rows: {context.rows}\n"
             f"Columns: {context.columns}\n\n"
-            f"Column Names: {', '.join(context.column_names)}\n\n"
-            f"Numeric Features: {', '.join(context.numeric_features)}\n"
-            f"Categorical Features: {', '.join(context.categorical_features)}\n"
+            f"Column Names: {columns}\n\n"
+            f"Numeric Features: {numeric}\n"
+            f"Categorical Features: {categorical}\n"
         )
 
         prompt = (
             "You are a helpful data analyst.\n\n"
-            "Use the dataset information below to answer the user's question.\n\n"
+            "Use the dataset information below to answer the question.\n\n"
             f"{dataset_summary}\n"
             f"Question: {question}\n"
-            "Answer clearly."
+            "Answer concisely."
         )
 
-        answer = self.llm.generate(prompt)
-
-        return answer
+        return self.llm.generate(prompt)
