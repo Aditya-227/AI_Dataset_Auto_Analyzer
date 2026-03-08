@@ -23,6 +23,7 @@ class LLMClient:
             import ollama
             self.mode = "ollama"
             self.client = ollama
+        print("LLM MODE:", self.mode)
 
     def generate(self, prompt):
 
@@ -55,4 +56,5 @@ class LLMClient:
 
             # prevent app crash
             return f"LLM error occurred: {str(e)}"
+
 
