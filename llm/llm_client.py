@@ -11,7 +11,6 @@ class LLMClient:
             from groq import Groq
             self.mode = "groq"
             self.client = Groq(api_key=self.groq_key)
-
         else:
             import ollama
             self.mode = "ollama"
@@ -19,24 +18,32 @@ class LLMClient:
 
     def generate(self, prompt):
 
-        if self.mode == "groq":
+        try:
 
-            response = self.client.chat.completions.create(
-                model="llama-3.1-8b-instant",
-                messages=[
-                    {"role": "system", "content": "You are a helpful data analyst."},
-                    {"role": "user", "content": prompt}
-                ]
-            )
-            return response.choices[0].message.content
+            if self.mode == "groq":
 
-        else:
+                response = self.client.chat.completions.create(
+                    model="llama-3.1-8b-instant",
+                    messages=[
+                        {"role": "system", "content": "You are a helpful data analyst."},
+                        {"role": "user", "content": str(prompt)}
+                    ],
+                    temperature=0.2,
+                    max_tokens=300
+                )
 
-            response = self.client.chat(
-                model="llama3",
-                messages=[{"role": "user", "content": prompt}]
-            )
+                return response.choices[0].message.content
 
+            else:
 
-            return response["message"]["content"]
+                response = self.client.chat(
+                    model="llama3",
+                    messages=[{"role": "user", "content": str(prompt)}]
+                )
 
+                return response["message"]["content"]
+
+        except Exception as e:
+
+            # prevent app crash
+            return f"LLM error occurred: {str(e)}"
