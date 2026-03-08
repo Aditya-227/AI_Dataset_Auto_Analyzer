@@ -1,16 +1,24 @@
 import os
+import streamlit as st
 
 
 class LLMClient:
 
     def __init__(self):
 
-        self.groq_key = os.getenv("GROQ_API_KEY")
+        # Try Streamlit secrets first
+        self.groq_key = None
+
+        try:
+            self.groq_key = st.secrets["GROQ_API_KEY"]
+        except Exception:
+            self.groq_key = os.getenv("GROQ_API_KEY")
 
         if self.groq_key:
             from groq import Groq
             self.mode = "groq"
             self.client = Groq(api_key=self.groq_key)
+
         else:
             import ollama
             self.mode = "ollama"
@@ -47,3 +55,4 @@ class LLMClient:
 
             # prevent app crash
             return f"LLM error occurred: {str(e)}"
+
