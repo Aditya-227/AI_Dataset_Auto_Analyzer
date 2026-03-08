@@ -290,15 +290,15 @@ GROQ_API_KEY = "your_key"
 
 ### Dataset Overview
 
-![overview](screenshots/overview.png)
+![overview](screenshots/1.png)
 
 ### AutoML Training
 
-![automl](screenshots/automl.png)
+![automl](screenshots/2.png)
 
 ### Feature Importance
 
-![importance](screenshots/importance.png)
+![importance](screenshots/3.png)
 
 ---
 
