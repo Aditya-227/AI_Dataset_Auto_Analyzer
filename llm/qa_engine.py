@@ -8,24 +8,19 @@ class QAEngine:
 
     def ask(self, context, question):
 
-        # simple questions handled locally
         q = question.lower()
 
+        # answer simple questions locally
         if "rows" in q:
             return f"The dataset contains {context.rows} rows."
 
         if "columns" in q:
             return f"The dataset contains {context.columns} columns."
 
-        summary = f"""
-Rows: {context.rows}
-Columns: {context.columns}
-Columns list: {', '.join(map(str, context.column_names[:10]))}
-"""
-
         prompt = f"""
 Dataset summary:
-{summary}
+Rows: {context.rows}
+Columns: {context.columns}
 
 Question: {question}
 """
