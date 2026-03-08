@@ -1,51 +1,82 @@
-# 🚀 AI Dataset Auto-Analyzer
+# AI Dataset Auto-Analyzer
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
-![Machine Learning](https://img.shields.io/badge/Machine%20Learning-AutoML-green)
-![LLM](https://img.shields.io/badge/LLM-Groq%20%7C%20Ollama-purple)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+<p align="center">
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=850&lines=AI+Dataset+Auto+Analyzer;Automatic+EDA+%26+Pattern+Detection;AutoML+Model+Training;Interactive+Dataset+Insights+with+LLMs" />
+</p>
 
-An **AI-powered dataset analysis platform** that automatically performs **EDA, pattern detection, ML model recommendations, AutoML training, and natural language dataset Q&A**.
+<p align="center">
 
-The system combines **Machine Learning automation + Large Language Models** to make dataset exploration fast and interactive.
+<a href="https://ai-dataset-auto-analyzer.streamlit.app/">
+<img src="https://img.shields.io/badge/Streamlit-Live%20Demo-ff4b4b?logo=streamlit&logoColor=white">
+</a>
+
+<img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python">
+<img src="https://img.shields.io/badge/Machine%20Learning-AutoML-green">
+<img src="https://img.shields.io/badge/LLM-Groq%20%7C%20Ollama-purple">
+<img src="https://img.shields.io/github/stars/Aditya-227/AI_Dataset_Auto_Analyzer?style=social">
+<img src="https://img.shields.io/github/forks/Aditya-227/AI_Dataset_Auto_Analyzer?style=social">
+<img src="https://img.shields.io/github/license/Aditya-227/AI_Dataset_Auto_Analyzer">
+
+</p>
 
 ---
 
-# 🌐 Live Demo
+# Live Demo
 
-Try the deployed app:
-
+🚀 Try the application
 
 https://ai-dataset-auto-analyzer.streamlit.app/
 
 ---
 
-# ✨ Features
+# Overview
 
-### 📊 Automated Dataset Analysis
-- Upload **CSV / Excel datasets**
-- Automatic **EDA (Exploratory Data Analysis)**
-- Detect:
+Exploratory Data Analysis (EDA) takes significant time during the data science workflow.
+
+This project automates dataset understanding using **Machine Learning and Large Language Models**.
+
+The system automatically:
+
+- Analyzes dataset structure
+- Detects correlations and patterns
+- Recommends ML models
+- Trains models automatically
+- Generates dataset insights
+- Supports natural language questions
+
+All results appear in an **interactive Streamlit dashboard**.
+
+---
+
+# Features
+
+## Automated Dataset Analysis
+
+- Upload CSV or Excel datasets
+- Automatic EDA
+- Detects:
   - Numeric features
   - Categorical features
   - Missing values
   - Correlations
+  - Dataset statistics
 
 ---
 
-### 🔎 Pattern Detection
+## Pattern Detection
+
 Automatically detects:
 
-- Potential **target variable**
-- **Class imbalance**
-- **High correlations**
+- Possible target variable
+- Class imbalance
+- Feature relationships
 - Dataset structure insights
 
 ---
 
-### 📈 Interactive Visualizations
-Powered by **Plotly + Streamlit**
+## Interactive Visualizations
+
+Powered by **Plotly and Streamlit**
 
 Includes:
 
@@ -56,12 +87,14 @@ Includes:
 
 ---
 
-### 🤖 AutoML Model Training
+## AutoML Model Training
+
 Automatically:
 
 - Selects target column
-- Tests multiple ML models
-- Chooses best performing model
+- Splits dataset
+- Tests multiple models
+- Selects best performing model
 
 Models compared:
 
@@ -78,36 +111,36 @@ Outputs:
 
 ---
 
-### 💬 Natural Language Dataset Q&A
-Ask questions like:
+## Natural Language Dataset Q&A
+
+Example questions:
 
 ```
-How many rows are in this dataset?
+How many rows are in the dataset?
 Which feature is most important?
 What type of problem is this dataset?
 ```
 
-The AI assistant responds using dataset metadata.
+The AI assistant answers using dataset metadata.
 
 ---
 
-### 🧠 Hybrid LLM Architecture
+## Hybrid LLM Architecture
 
-The system automatically switches between:
+| Environment | LLM |
+|-------------|-----|
+| Local Development | Ollama |
+| Cloud Deployment | Groq API |
 
-| Environment | LLM Used |
-|-------------|----------|
-| Local development | Ollama (local LLM) |
-| Cloud deployment | Groq API |
+Advantages:
 
-This allows:
-
-- **Offline local development**
-- **Fast cloud inference**
+- Offline local development
+- Fast cloud inference
+- Flexible LLM integration
 
 ---
 
-# 🏗 System Architecture
+# System Architecture
 
 ```
 User
@@ -135,13 +168,13 @@ AutoML Trainer
  │
  ▼
 LLM Client
- ├── Ollama (Local Development)
- └── Groq API (Cloud Deployment)
+ ├── Ollama (Local)
+ └── Groq API (Cloud)
 ```
 
 ---
 
-# 🧩 Project Structure
+# Project Structure
 
 ```
 AI_Dataset_Auto_Analyzer
@@ -167,43 +200,47 @@ AI_Dataset_Auto_Analyzer
 │   └── report_generator.py
 │
 ├── config
-│
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-# ⚙️ Installation
+# Installation
 
-Clone the repository:
+Clone repository
 
 ```bash
 git clone https://github.com/Aditya-227/AI_Dataset_Auto_Analyzer.git
+```
+
+Navigate to project
+
+```bash
 cd AI_Dataset_Auto_Analyzer
 ```
 
-Create virtual environment:
+Create virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate environment:
+Activate environment
 
-**Windows**
+Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-**Linux / Mac**
+Linux / Mac
 
 ```bash
 source venv/bin/activate
 ```
 
-Install dependencies:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -211,15 +248,13 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run Locally
-
-Start the Streamlit app:
+# Run Application
 
 ```bash
 streamlit run app/streamlit_app.py
 ```
 
-Open in browser:
+Open
 
 ```
 http://localhost:8501
@@ -227,23 +262,21 @@ http://localhost:8501
 
 ---
 
-# 🔑 API Setup (Groq)
+# API Setup (Groq)
 
-Create a Groq API key:
+Create API key
 
 ```
 https://console.groq.com/
 ```
 
-Add it to environment variables:
-
-**Windows**
+Windows
 
 ```bash
 set GROQ_API_KEY=your_key_here
 ```
 
-**Linux / Mac**
+Linux / Mac
 
 ```bash
 export GROQ_API_KEY=your_key_here
@@ -251,22 +284,22 @@ export GROQ_API_KEY=your_key_here
 
 ---
 
-# ☁️ Deployment (Streamlit Cloud)
+# Deployment
 
-1. Push project to GitHub
-2. Go to:
+1 Push code to GitHub  
+2 Open
 
 ```
 https://share.streamlit.io
 ```
 
-3. Deploy using:
+3 Deploy using
 
 ```
 app/streamlit_app.py
 ```
 
-4. Add secrets:
+4 Add secret
 
 ```
 GROQ_API_KEY = "your_key"
@@ -274,56 +307,31 @@ GROQ_API_KEY = "your_key"
 
 ---
 
-# 📊 Example Workflow
-
-1️⃣ Upload dataset  
-2️⃣ Automatic dataset analysis  
-3️⃣ Detect patterns and correlations  
-4️⃣ Visualize features  
-5️⃣ Train ML model automatically  
-6️⃣ Ask AI questions about the dataset  
-
----
-
-# 📸 Screenshots
-
-### Dataset Overview
+# Screenshots
 
 ![overview](screenshots/1.png)
 
-### AutoML Training
-
 ![automl](screenshots/2.png)
-
-### Feature Importance
 
 ![importance](screenshots/3.png)
 
 ---
 
-# 🚀 Future Improvements
+# Future Improvements
 
-Possible enhancements:
-
-- Dataset **chat interface**
+- Dataset chat interface
 - Feature engineering suggestions
-- Model explainability (SHAP)
-- Auto hyperparameter tuning
-- Report export (PDF)
+- SHAP explainability
+- Hyperparameter tuning
+- PDF report export
 
 ---
 
-# 📜 License
+# Author
 
-MIT License
+Aditya Verma
 
----
-
-# 👨‍💻 Author
-
-**Aditya**
-
-GitHub:
+GitHub
 
 ```
 https://github.com/Aditya-227
@@ -331,6 +339,4 @@ https://github.com/Aditya-227
 
 ---
 
-# ⭐ If you like this project
-
-Give it a **star on GitHub** ⭐
+⭐ If you like this project, give it a star on GitHub.
