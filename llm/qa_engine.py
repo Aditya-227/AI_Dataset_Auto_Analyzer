@@ -8,25 +8,26 @@ class QAEngine:
 
     def ask(self, context, question):
 
-        numeric = ", ".join(map(str, context.numeric_features))
-        categorical = ", ".join(map(str, context.categorical_features))
-        columns = ", ".join(map(str, context.column_names))
+        # simple questions handled locally
+        q = question.lower()
 
-        dataset_summary = (
-            f"Dataset Information:\n"
-            f"Rows: {context.rows}\n"
-            f"Columns: {context.columns}\n\n"
-            f"Column Names: {columns}\n\n"
-            f"Numeric Features: {numeric}\n"
-            f"Categorical Features: {categorical}\n"
-        )
+        if "rows" in q:
+            return f"The dataset contains {context.rows} rows."
 
-        prompt = (
-            "You are a helpful data analyst.\n\n"
-            "Use the dataset information below to answer the question.\n\n"
-            f"{dataset_summary}\n"
-            f"Question: {question}\n"
-            "Answer concisely."
-        )
+        if "columns" in q:
+            return f"The dataset contains {context.columns} columns."
+
+        summary = f"""
+Rows: {context.rows}
+Columns: {context.columns}
+Columns list: {', '.join(map(str, context.column_names[:10]))}
+"""
+
+        prompt = f"""
+Dataset summary:
+{summary}
+
+Question: {question}
+"""
 
         return self.llm.generate(prompt)
