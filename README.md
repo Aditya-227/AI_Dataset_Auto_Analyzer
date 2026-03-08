@@ -16,9 +16,8 @@ The system combines **Machine Learning automation + Large Language Models** to m
 
 Try the deployed app:
 
-```
+
 https://ai-dataset-auto-analyzer.streamlit.app/
-```
 
 ---
 
